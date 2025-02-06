@@ -1,0 +1,7 @@
+öUSEUNIT("Princ.cpp");
+USEUNIT("BExcecao.cpp");
+USEUNIT("..\..\RotMEF2001\Extras\Matriz\MatrizDouble.cpp");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main
