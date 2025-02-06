@@ -1,8 +1,9 @@
 #ifndef MARIZFORH
 #define MARIZFORH
 
-#include"bexcecao.h"
+#include"Bexcecao.h"
 //#include<complex.h>
+#include<mem.h>
 
 #pragma option push -A
 
@@ -11,7 +12,7 @@ class MatrizFor
 {
     private:
         bool AlocacaoAutomatica;
-        T* matrizC;
+        T* matrizC; //row format matrix (raw matrix data)
         static const char* mensagemErro[];
         long nLinhas;
         long nLinhasAlocadas;
@@ -19,20 +20,23 @@ class MatrizFor
         long nColunasAlocadas;
 
     protected:
-/*        virtual void AdicionaColunas(long NovasColunas);
+/*
+        virtual void AdicionaColunas(long NovasColunas);
         virtual void AdicionaColunas(long NovasColunas, const T& cnst);
         virtual void AdicionaLinhas(long NovasLinhas);
-        virtual void AdicionaLinhas(long NovasLinhas, const T& cnst);*/
+        virtual void AdicionaLinhas(long NovasLinhas, const T& cnst);
+*/
         inline void TranspoeLineariza(long l, long c, const T** matriz);
         inline void TranspoeLineariza(long l, long c, const T** matriz, long la);
 
     public:
         //Construtores e destrutor
         inline MatrizFor(void);
-        inline MatrizFor(const MatrizFor<T>& MF);
+        inline MatrizFor(const MatrizFor<T>& MF); // copy constructor
         inline MatrizFor(long l, long c);
         inline MatrizFor(long l, long c, const T** matriz);
         inline MatrizFor(long l, long c, const T& cnst);
+        
         inline MatrizFor(long l, long c, long la, long ca);
         inline MatrizFor(long l, long c, const T** matriz, long la, long ca);
         inline MatrizFor(long l, long c, const T& cnst, long la, long ca);
@@ -193,9 +197,9 @@ MatrizFor<T>& MatrizFor<T>::operator=(const MatrizFor<T>& MF)
 {
     Redimensiona(MF.nLinhas, MF.nColunas); ///Função Redimensiona faz cópia de matriz!
     for (long j=0; j<nColunas; j++)
-        memcpy(matrizC+nLinhasAlocadas*j, MF.matrizC+nLinhasAlocadas*j,
+        memcpy(matrizC+nLinhasAlocadas*j, MF.matrizC+MF.nLinhasAlocadas*j,
         MF.nLinhas*sizeof(T));
-    return *this; 
+    return *this;
 }
 
 #define OPERADORPARENTESE\
