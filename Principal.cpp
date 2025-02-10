@@ -12,7 +12,7 @@
 //typedef MatrizFor<double> Matriz;
   typedef MatrizDouble Matriz;
 //Existe a necessidade de haver uma classe base para as matrizes?
-//Exemplo: a função Carrega, abaixo, deveria funcionar para qualquer tipo de matriz.
+//Exemplo: a funï¿½ï¿½o Carrega, abaixo, deveria funcionar para qualquer tipo de matriz.
 /*
 template<class T>
 void Carrega(fstream& Arq, MatrizFor<T>& M)
@@ -73,7 +73,7 @@ int main( int argc , char* argv[] )
         B(0,1) = 3;
         B(1,1) = 4;
 
-        //Arq >> B;
+      
 
 //        cout << " A - 2 A " << endl << (A - 2 * A) << endl;
 //        cout << "A:" << endl << A << endl << "B:" << endl << B << endl <<"(A*B):" << endl << (A*B) << endl;//<< endl <<"(A*B)T:" << endl << Transposta( (A*B) ) << endl ;
