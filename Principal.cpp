@@ -2,7 +2,7 @@
 
 #pragma hdrstop
 //#include"MatrizFor.h"
-#include<fstream.h>
+#include<fstream>
 //#include<complex.h>
 #include "MatrizDouble.h"
 //---------------------------------------------------------------------------
